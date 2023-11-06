@@ -15,3 +15,4 @@ print(f"Difference: {diff_res}")
 print(f"Product: {prod_res}")
 print(f"Quotient: {quot_res}")
 print(f"Remainder: {remain_res}")
+
