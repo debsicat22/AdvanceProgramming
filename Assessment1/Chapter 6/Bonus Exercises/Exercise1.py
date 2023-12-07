@@ -1,29 +1,15 @@
-import json
+import matplotlib.pyplot as plt
 
-# Step 1: Ask the user for student details and write to the JSON file
-student_details = {}
-student_details['Name'] = input("Enter student name: ")
-student_details['ID'] = int(input("Enter student ID: "))
-student_details['Course'] = input("Enter course: ")
+# Data
+brands = ["Amazon", "Apple", "Google", "Microsoft", "Walmart", "Samsung Group", "ICBC", "Verizon", "Tesla", "TikTok/Douyin"]
+values = [299.28, 297.51, 281.38, 191.57, 113.78, 99.66, 69.55, 67.44, 66.21, 65.67]
 
-# Add CourseDetails as a nested dictionary
-course_details = {}
-course_details['Group'] = input("Enter group: ")
-course_details['Year'] = int(input("Enter year: "))
-student_details['CourseDetails'] = course_details
+# Create a bar graph
+plt.figure(figsize=(10, 6))
+plt.barh(brands, values, color='skyblue')
+plt.xlabel('Brand Value (Billion U.S. Dollars)')
+plt.title('Most Valuable Brands Worldwide in 2023')
+plt.grid(axis='x')
 
-with open('StudentJson.json', 'w') as json_file:
-    json.dump(student_details, json_file)
-
-print("Student details written to StudentJson.json")
-
-# Step 2: Read and display the contents from the JSON file
-with open('StudentJson.json', 'r') as json_file:
-    student_details = json.load(json_file)
-
-print("\nDetails of the Student are")
-print(f"Name: {student_details['Name']}")
-print(f"ID: {student_details['ID']}")
-print(f"Course: {student_details['Course']}")
-print(f"Group: {student_details['CourseDetails']['Group']}")
-print(f"Year: {student_details['CourseDetails']['Year']}")
+# Display the graph
+plt.show()
